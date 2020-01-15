@@ -8,8 +8,15 @@
     </url>
 
     <url>
+        <loc>https://dongejeung.github.io/categories/SICP/</loc>
+        <lastmod>2020-01-15T10:19:46.085Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://dongejeung.github.io/categories/%EB%8B%A8%EC%83%81/</loc>
-        <lastmod>2020-01-15T08:48:59.292Z</lastmod>
+        <lastmod>2020-01-15T10:13:21.895Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
