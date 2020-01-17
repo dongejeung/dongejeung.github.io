@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://dongejeung.github.io/2020/01/17/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/dummy/</loc>
+        <lastmod>2020-01-17T09:37:29.503Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://dongejeung.github.io/2020/01/17/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B0%9C%EA%B4%84/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B3%A0%EC%B0%B0/</loc>
+        <lastmod>2020-01-17T08:06:50.196Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://dongejeung.github.io/2020/01/15/SICP/%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0%EC%97%90%EC%95%9E%EC%84%9C/</loc>
         <lastmod>2020-01-15T14:40:21.491Z</lastmod>
         <changefreq>weekly</changefreq>
