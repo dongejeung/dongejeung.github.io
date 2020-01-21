@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://dongejeung.github.io/categories/linux/</loc>
+        <lastmod>2020-01-21T12:59:31.122Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://dongejeung.github.io/categories/spring/</loc>
         <lastmod>2020-01-21T12:16:46.295Z</lastmod>
         <changefreq>weekly</changefreq>

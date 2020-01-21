@@ -193,7 +193,7 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/01/21/spring/환경설정/"
+                            href="/2020/01/21/linux/단축키/"
                             aria-label=": "
                         >
                             
@@ -201,7 +201,7 @@
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-01-21T18:05:10+09:00">
+    <time datetime="2020-01-21T21:18:10+09:00">
 	
 		    2020.01.21
     	
@@ -209,7 +209,7 @@
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/spring/">spring</a>
+    <a class="category-link" href="/categories/linux/">linux</a>
 
 
     
@@ -218,57 +218,94 @@
             </div>
             
                 <div class="postShorten-content">
-                    <h1 id="제목"><a href="#제목" class="headerlink" title="제목"></a>제목</h1><p>spring boot 시작하기</p>
-<pre>
+                    <pre>
 
-- 하모니카에서는 OS 설치시 openjdk 11 버전이 깔려있었다.
+# OS상의 단축키.
+/*
+    OS 상 환경설정을 통해 제어할 수 있는 단축키가 있을 것이다.
+    무엇을 하든 제일 먼저 해야할 것은,
+    검색하는 방법을 알아내고 인덱싱하고 정리하는 것이다.
+    외울 것은 외워야 겠지만,
+    굳이 모든 것을 외울 필요는 없을 것이다.
+*/
 
-- 환경변수 편집을 하려고 vi /etc/profile 로 열었는데,
-무슨 코드 같은게 있다.
-뭔말인지 잘 모르겠다. 검색을 해보자.
+메뉴 >> 시스템설정 >> 키보드 항목에 단축키라는 항목이 있다.
+궁금한 단축키가 있으면 해당 항목에서 찾아보고,
+지금은 자주 사용할만한 단축키들을 몇 개 나열해 보겠다.
 
+작업공간(대부분 ctrl + alt + ..)
+- alt + F1 : 작업공간(workspace 알탭으로 프로세스 이동하곤 다름.) 선택 창.
+- ctrl + alt + 좌우 화살표 : 작업공간 이동.
 
-/etc/profile    => 모든 계정 공통적용 환경설정.
+화면 제어
+- alt + F10 : 창 최대화 토글.
 
-.profile    => 특정 계정 환경설정.
+프로세스 실행
 
-=> /etc/profile을 적용 그다음 .profile의 내용을 적용함.
+- ctrl + alt + t : 터미널 실행.
+- ctrl + alt + c : 계산기 실행.(사용자 지정.)
+- ctrl + alt + b : 브라우저 실행.(사용자 지정.)
+- super(window) + e : 홈 폴더(파일 검색기.)
 
-아 내부에 있는 코드는 쉘스크립트를 실행시키는 명령어 코드라고 한다.
+기타
 
-bash를 쉘로 지정하면 /etc/profile -> .profile -> .bashrc -> /etc/bashrc
-순으로 호출된다고 한다.
+- ctrl + alt + p : 윈도우 캡쳐.(프로세스별 캡쳐인듯.)
+- shift + ctrl + p : 특정영역 캡쳐.
+// shutter 라는 프로그램인 듯.
+- shift + ctrl + f : 데스크탑 검색.
 
-아 슈바 헷갈리네..
-openjdk가 깔려있었으니..
-환경변수도 잡혀있을 일말의 가능성을 가지고,
-다음 스텝으로 진행해보겠다.
+인데 몇 개 빼고 쓸일 없을 듯.
 
-/etc/environment 에 
-JAVA_HOME PATH만 추가 해 놓았다.
-mvn설치를 하였고,
-mvn -v로 버전확인을 하였다.
-jdk 설치경로는 /usr/lib/jvm/ 이하다.
-jvm 설치경로가 저렇게 되어 있는가 보다.
+============================
+
+# 터미널 단축키.
 
 /*
-    리눅스 단축키와 명령어
-    vi 단축키등을 외울 필요가 있다.
-    리눅스 디렉터리 구조에 대해서도 짚을 필요가 있고,
-    Git 사용법에 대해서도 익힐 필요가 있다.
-*/    
+    예전에 터미널 단축키는 하나하나가 프로그램이라고 들었던 것 같다.
+    그래서 프로그램들이 모여있는 위치가 어디 있었는데..
 
-뭐 개판이긴 한데,
-스프링부트 사이트에 가서 demo를 받은후,
-whiteLabel을 띄우긴 했다.
-// 프로젝트를 만들긴 할거지만, private라 push 하지는 않을 계획이다.
-대외용 계정 만들기를 해야겠다.
+*/
+
+남들이 많이 정리해놨는데 내가 따로 정리하기 귀찮네..
+옵션은 생략한다.
+
+- 명령어 --help : 명령어에 대한 설명을 볼 수 있다.(주로 옵션을 보는데 쓸 것 같다.)
+- man 명령어 : 명령어에 대한 상세 설명을 볼 수 있다.
 
 
+# 디렉터리 보기와 이동,
+ls : 파일의 목록 보기.
+pwd : 현재 위치.
+cd : 디렉터리 이동.
+
+# 파일(디렉터리) 관련 명령어.
+mv : 파일 이동(이름 바꾸기)
+cp : 파일 복사.
+mkdir : 디렉터리 생성.
+rm : 파일, 디렉터리 삭제
+touch : 파일 생성. 
+vi : 편집기 열기(없는 거 열면 생성.)
+cat : 파일 보기(없는 거 열면 생성.)
+
+# 기타
+cat : 파일 보기.
+more : 파일 보기(화면 단위로)
+chmod : 권한 변경하기.
+who : 현재 로그인중인 사용자 리스트 보기.
+whereis : 소스, 실행파일, 메뉴얼 등의 위치를 알려줌.
+head : 파일 내용만 보기.
+tail : 파일 내용만 보기.
+tar -xvf 파일명 : 압축파일 풀기.
+tar -cvf 파일명 : 압축하기.
+
+// 기타 내용은 지속적으로 추가 정리하도록 하겠다.
 
 </pre>
 
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>
+
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>#제타위키</p>
+
                     
                         
 
@@ -277,7 +314,7 @@ whiteLabel을 띄우긴 했다.
                     
                         <p>
                             <a
-                                href="/2020/01/21/spring/환경설정/#post-footer"
+                                href="/2020/01/21/linux/단축키/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
