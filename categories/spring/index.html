@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="재미로 태어난 한량의 인생놀음~">
-    <title>Archives: 2020 - 재미로 태어난 한량의 인생놀음~</title>
+    <title>Category: spring - 재미로 태어난 한량의 인생놀음~</title>
     <meta name="author" content="DON">
     
     
@@ -19,7 +19,7 @@
     <meta name="description" content="잡동사니">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="재미로 태어난 한량의 인생놀음~">
-<meta property="og:url" content="https://dongejeung.github.io/archives/2020/page/8/index.html">
+<meta property="og:url" content="https://dongejeung.github.io/categories/spring/index.html">
 <meta property="og:site_name" content="재미로 태어난 한량의 인생놀음~">
 <meta property="og:description" content="잡동사니">
 <meta property="og:locale" content="en">
@@ -193,7 +193,7 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/01/15/dummy/"
+                            href="/2020/01/21/spring/환경설정/"
                             aria-label=": "
                         >
                             
@@ -201,18 +201,70 @@
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-01-15T17:42:10+09:00">
+    <time datetime="2020-01-21T18:05:10+09:00">
 	
-		    2020.01.15
+		    2020.01.21
     	
     </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/spring/">spring</a>
+
+
     
 </div>
 
             </div>
             
                 <div class="postShorten-content">
-                    <h1 id="제목"><a href="#제목" class="headerlink" title="제목"></a>제목</h1><pre>
+                    <h1 id="제목"><a href="#제목" class="headerlink" title="제목"></a>제목</h1><p>spring boot 시작하기</p>
+<pre>
+
+- 하모니카에서는 OS 설치시 openjdk 11 버전이 깔려있었다.
+
+- 환경변수 편집을 하려고 vi /etc/profile 로 열었는데,
+무슨 코드 같은게 있다.
+뭔말인지 잘 모르겠다. 검색을 해보자.
+
+
+/etc/profile    => 모든 계정 공통적용 환경설정.
+
+.profile    => 특정 계정 환경설정.
+
+=> /etc/profile을 적용 그다음 .profile의 내용을 적용함.
+
+아 내부에 있는 코드는 쉘스크립트를 실행시키는 명령어 코드라고 한다.
+
+bash를 쉘로 지정하면 /etc/profile -> .profile -> .bashrc -> /etc/bashrc
+순으로 호출된다고 한다.
+
+아 슈바 헷갈리네..
+openjdk가 깔려있었으니..
+환경변수도 잡혀있을 일말의 가능성을 가지고,
+다음 스텝으로 진행해보겠다.
+
+/etc/environment 에 
+JAVA_HOME PATH만 추가 해 놓았다.
+mvn설치를 하였고,
+mvn -v로 버전확인을 하였다.
+jdk 설치경로는 /usr/lib/jvm/ 이하다.
+jvm 설치경로가 저렇게 되어 있는가 보다.
+
+/*
+    리눅스 단축키와 명령어
+    vi 단축키등을 외울 필요가 있다.
+    리눅스 디렉터리 구조에 대해서도 짚을 필요가 있고,
+    Git 사용법에 대해서도 익힐 필요가 있다.
+*/    
+
+뭐 개판이긴 한데,
+스프링부트 사이트에 가서 demo를 받은후,
+whiteLabel을 띄우긴 했다.
+// 프로젝트를 만들긴 할거지만, private라 push 하지는 않을 계획이다.
+대외용 계정 만들기를 해야겠다.
+
+
 
 </pre>
 
@@ -225,7 +277,7 @@
                     
                         <p>
                             <a
-                                href="/2020/01/15/dummy/#post-footer"
+                                href="/2020/01/21/spring/환경설정/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -242,30 +294,8 @@
     <div class="pagination-bar">
     <ul class="pagination">
         
-          <li class="pagination-prev">
-            <a
-                class="btn btn--default btn--small"
-                href="/archives/2020/page/7/"
-                aria-label="NEWER POSTS"
-            >
-              <i class="fa fa-angle-left text-base icon-mr"></i>
-              <span>NEWER POSTS</span>
-            </a>
-          </li>
         
-        
-          <li class="pagination-next">
-            <a
-                class="btn btn--default btn--small"
-                href="/archives/2020/page/9/"
-                aria-label="OLDER POSTS"
-            >
-              <span>OLDER POSTS</span>
-              <i class="fa fa-angle-right text-base icon-ml"></i>
-            </a>
-          </li>
-        
-        <li class="pagination-number">page 8 of 12</li>
+        <li class="pagination-number">page 1 of 1</li>
     </ul>
 </div>
 

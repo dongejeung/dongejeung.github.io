@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://dongejeung.github.io/2020/01/21/spring/%ED%99%98%EA%B2%BD%EC%84%A4%EC%A0%95/</loc>
+        <lastmod>2020-01-21T12:16:46.295Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://dongejeung.github.io/2020/01/15/dummy/</loc>
+        <lastmod>2020-01-21T09:48:34.932Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://dongejeung.github.io/2020/01/15/java/dummy/</loc>
+        <lastmod>2020-01-21T09:04:38.476Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://dongejeung.github.io/2020/01/17/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/IP/</loc>
         <lastmod>2020-01-17T09:37:29.503Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -58,14 +82,6 @@
     <url>
         <loc>https://dongejeung.github.io/2020/01/15/%EB%8F%85%EC%84%9C/%EC%9B%90%EC%B9%99/</loc>
         <lastmod>2020-01-15T13:05:40.715Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://dongejeung.github.io/2020/01/15/dummy/</loc>
-        <lastmod>2020-01-15T10:15:25.999Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
