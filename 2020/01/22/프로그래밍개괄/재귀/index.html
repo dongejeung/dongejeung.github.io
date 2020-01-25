@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="재미로 태어난 한량의 인생놀음~">
+    <title>프로그래밍 학습목차. - 재미로 태어난 한량의 인생놀음~</title>
+    <meta name="author" content="DON">
+    
+    
+        <link rel="icon" href="https://dongejeung.github.io/assets/images/favicon.jpg">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"DON","sameAs":["https://github.com/dongejeung"],"image":"favicon.jpg"},"articleBody":"\n\n재귀(recursive) : 스스로를 호출함.\n프로그래밍에서는 함수 A가 매개변수만 바꾸어,\n다시 함수 A를 호출하는 방법으로 구현.\n\n함수내부에 스스로를 호출하는 부분이 있어서,\n특정 break 구문을 만날때까지,\n반복해서 스스로를 호출하게 된다.\n\n고난이도 프로그래밍에서 꼭 필요한 중요한 개념일 수 있다.\n실제 짜여진 함수별로 차이가 있는지 어떤지는 잘 모르겠는데,\n함수 전개 + 내부함수 전개 의 반복으로 이루어지는 것 같다.\n\n어찌보면 반복문과도 비슷한 측면도 있다.\n식의 반복을 하고, 그것을 축적하는 셈이다.\n더 자세한 내용은 학습하면서 보도록 하자.\n\n재귀는 함수에서 쓰이는 개념인데(다른데 사용여부는 모른다.),\n약간 수열의 느낌과도 닮아있는 것 같다.\n재귀함수를 이해하기 위해서는 먼저,\n함수의 기초개념부터 탄탄히 잡는 것이 좋은 것 같다.\n매개변수와 리턴값 같은 것들 말이다.\n\n추상화된 구조를 개념화해보면,(리버싱했다고 해야 하나)\n함수정의 = 초항(break 조건항) + 증감조건을 동반한 재귀호출문\n을 통해서 이루어져 있다.\n\n형태적으로 보면\n양파의 껍질을 까듯이,\n더 작은 것을 까는 것으로 역으로 구현되어 있다.\n\n※ 재귀 형태는 모두 반복문으로 구현 가능하지만, 재귀가 구현이 더 쉬운 경우들이 있음.\nex) 이진 검색, 트리 구조, 퀵 정렬, 하노이의 탑 등등.\n\n어느 정도 익숙해지면,\n직관적으로 짜는 방식을 체화시켜놓는 편이 편할 것 같긴 하다.\n큰 함수가 더 작은 함수를 호출한다는 식으로..\n실제 동작하는 방식은\nbreak 조건문 실행 \n=> break 리턴값 + 그 위의 조건식\n뭐 이런 식인 것 같다.\n\n\n\n\n\n\n\nReference","dateCreated":"2020-01-22T05:24:10+09:00","dateModified":"2020-01-22T06:25:11+09:00","datePublished":"2020-01-22T05:24:10+09:00","description":"","headline":"프로그래밍 학습목차.","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"},"publisher":{"@type":"Organization","name":"DON","sameAs":["https://github.com/dongejeung"],"image":"favicon.jpg","logo":{"@type":"ImageObject","url":"favicon.jpg"}},"url":"https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"}</script>
+    <meta name="description" content="재귀(recursive) : 스스로를 호출함. 프로그래밍에서는 함수 A가 매개변수만 바꾸어, 다시 함수 A를 호출하는 방법으로 구현.  함수내부에 스스로를 호출하는 부분이 있어서, 특정 break 구문을 만날때까지, 반복해서 스스로를 호출하게 된다.  고난이도 프로그래밍에서 꼭 필요한 중요한 개념일 수 있다. 실제 짜여진 함수별로 차이가 있는지 어떤지는">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="프로그래밍 학습목차.">
+<meta property="og:url" content="https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/index.html">
+<meta property="og:site_name" content="재미로 태어난 한량의 인생놀음~">
+<meta property="og:description" content="재귀(recursive) : 스스로를 호출함. 프로그래밍에서는 함수 A가 매개변수만 바꾸어, 다시 함수 A를 호출하는 방법으로 구현.  함수내부에 스스로를 호출하는 부분이 있어서, 특정 break 구문을 만날때까지, 반복해서 스스로를 호출하게 된다.  고난이도 프로그래밍에서 꼭 필요한 중요한 개념일 수 있다. 실제 짜여진 함수별로 차이가 있는지 어떤지는">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-21T21:25:11.884Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="프로그래밍 학습목차.">
+<meta name="twitter:description" content="재귀(recursive) : 스스로를 호출함. 프로그래밍에서는 함수 A가 매개변수만 바꾸어, 다시 함수 A를 호출하는 방법으로 구현.  함수내부에 스스로를 호출하는 부분이 있어서, 특정 break 구문을 만날때까지, 반복해서 스스로를 호출하게 된다.  고난이도 프로그래밍에서 꼭 필요한 중요한 개념일 수 있다. 실제 짜여진 함수별로 차이가 있는지 어떤지는">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://dongejeung.github.io/assets/images/favicon.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-vcvyvywui0ln8khvlqodlalpil2szvtir4nq4cqabhv6ezlg7u1pympnzkqu.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156063180-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156063180-1');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/ "
+            aria-label=""
+        >
+            재미로 태어난 한량의 인생놀음~
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+            <img class="header-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">DON</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>nope</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/dongejeung" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            프로그래밍 학습목차.
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-01-22T05:24:10+09:00">
+	
+		    2020.01.22
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/프로그래밍개괄/">프로그래밍개괄</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <pre>
+
+재귀(recursive) : 스스로를 호출함.
+프로그래밍에서는 함수 A가 매개변수만 바꾸어,
+다시 함수 A를 호출하는 방법으로 구현.
+
+함수내부에 스스로를 호출하는 부분이 있어서,
+특정 break 구문을 만날때까지,
+반복해서 스스로를 호출하게 된다.
+
+고난이도 프로그래밍에서 꼭 필요한 중요한 개념일 수 있다.
+실제 짜여진 함수별로 차이가 있는지 어떤지는 잘 모르겠는데,
+함수 전개 + 내부함수 전개 의 반복으로 이루어지는 것 같다.
+
+어찌보면 반복문과도 비슷한 측면도 있다.
+식의 반복을 하고, 그것을 축적하는 셈이다.
+더 자세한 내용은 학습하면서 보도록 하자.
+
+재귀는 함수에서 쓰이는 개념인데(다른데 사용여부는 모른다.),
+약간 수열의 느낌과도 닮아있는 것 같다.
+재귀함수를 이해하기 위해서는 먼저,
+함수의 기초개념부터 탄탄히 잡는 것이 좋은 것 같다.
+매개변수와 리턴값 같은 것들 말이다.
+
+추상화된 구조를 개념화해보면,(리버싱했다고 해야 하나)
+함수정의 = 초항(break 조건항) + 증감조건을 동반한 재귀호출문
+을 통해서 이루어져 있다.
+
+형태적으로 보면
+양파의 껍질을 까듯이,
+더 작은 것을 까는 것으로 역으로 구현되어 있다.
+
+※ 재귀 형태는 모두 반복문으로 구현 가능하지만, 재귀가 구현이 더 쉬운 경우들이 있음.
+ex) 이진 검색, 트리 구조, 퀵 정렬, 하노이의 탑 등등.
+
+어느 정도 익숙해지면,
+직관적으로 짜는 방식을 체화시켜놓는 편이 편할 것 같긴 하다.
+큰 함수가 더 작은 함수를 호출한다는 식으로..
+실제 동작하는 방식은
+break 조건문 실행 
+=> break 리턴값 + 그 위의 조건식
+뭐 이런 식인 것 같다.
+
+
+
+
+
+
+</pre>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/22/용어/용어/"
+                    data-tooltip=""
+                    aria-label="PREVIOUS: "
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/21/linux/단축키/"
+                    data-tooltip=""
+                    aria-label="NEXT: "
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 DON. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/22/용어/용어/"
+                    data-tooltip=""
+                    aria-label="PREVIOUS: "
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/21/linux/단축키/"
+                    data-tooltip=""
+                    aria-label="NEXT: "
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/"
+                        aria-label="Share on Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">DON</h4>
+        
+            <div id="about-card-bio"><p>nope</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>white hand</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                Seoul, Korea
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-austbc40zo3ahhsoyg1hgipaie8wwn9oedb0dfchxvtxnqlt26z3k3jt5pfi.min.js"></script>
+<!--SCRIPTS END-->
+<script type="text/javascript">      
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'https://dongejeung.github.io/2020/01/22/프로그래밍개괄/재귀/';
+              
+            this.page.identifier = '2020/01/22/프로그래밍개괄/재귀/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'dongejeung';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>

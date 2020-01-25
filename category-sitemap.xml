@@ -8,8 +8,29 @@
     </url>
 
     <url>
+        <loc>https://dongejeung.github.io/categories/%EC%A3%BC%EC%A0%88%EC%A3%BC%EC%A0%88/</loc>
+        <lastmod>2020-01-25T12:38:32.851Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://dongejeung.github.io/categories/linux/</loc>
-        <lastmod>2020-01-21T12:59:31.122Z</lastmod>
+        <lastmod>2020-01-22T00:03:48.167Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://dongejeung.github.io/categories/%EC%9A%A9%EC%96%B4/</loc>
+        <lastmod>2020-01-21T23:00:24.380Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://dongejeung.github.io/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B0%9C%EA%B4%84/</loc>
+        <lastmod>2020-01-21T21:25:11.884Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -24,13 +45,6 @@
     <url>
         <loc>https://dongejeung.github.io/categories/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/</loc>
         <lastmod>2020-01-17T09:37:29.503Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://dongejeung.github.io/categories/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EA%B0%9C%EA%B4%84/</loc>
-        <lastmod>2020-01-17T08:06:50.196Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
