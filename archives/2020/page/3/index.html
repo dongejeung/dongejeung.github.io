@@ -193,7 +193,7 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/01/26/건강/건강의기초/"
+                            href="/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
                             aria-label=": "
                         >
                             
@@ -201,15 +201,15 @@
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-01-26T00:37:10+09:00">
+    <time datetime="2020-01-27T15:36:10+09:00">
 	
-		    2020.01.26
+		    2020.01.27
     	
     </time>
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/건강/">건강</a>
+    <a class="category-link" href="/categories/닥치고프로젝트/">닥치고프로젝트</a>
 
 
     
@@ -219,46 +219,55 @@
             
                 <div class="postShorten-content">
                     <pre>
-건강은 중요하다.
-현실 세계에서 사용하는 제 1의 자원이라 그러하다.
-자기계발과 최적화의 과정에서 가장 우선시되어야 할 것은 건강이다.
+친구가 추천해준 강의와 링크가 있다.
+그것들을 참고해서 차근차근 해보자.
 
-건강을 증진한다 함은 여러 관점이 있을수 있지만,
-균형이 잘 잡혀야되지 않나 싶다.
+노드는 저번에 깔았고, 
+에디터는 sts4를 쓸거고,
+몽고DB를 깔라는데..
+ㅅㅂ 뭐 클러스터 어쩌구 말이 나오는데
+뭔 소린지 모르겠다.
+걍 mysql로 해봐야겠다.
 
-- 좌우의 밸런스
-- 척추를 중심으로 근육의 길이가 짧아지고 길어짐.
-- 신경의 압박
-- 손상의 위험성
-- 영양의 공급
-- 전자파 등 유해한 자극 줄이기
-- 양질의 수면
+sudo apt install -y mysql-server
 
-등등 신경써야 할 것이 많다.
+sudo mysql_secure_installation
 
-그 중에서 좀 우선적으로 신경쓰면 좋을 것이,
-척추를 중심으로 몸의 밸런스를 맞추는 것이다.
-물리/역학적으로 올바른 형태를 갖춰야 올바른 작용을 한다.
+sudo /etc/init.d/mysql restart
 
-이를 위해선,
-평소 자세를 올바르게 하고,
-좌식, 보행 등등을 바르게 가져갈 수 있도록 하자.
-그리고 스트레칭을 병행해주도록 하자.
+sudo mysql -u root -p
 
-이완을 잘하는 것이 먼저다.
-귀찮고 고통스럽지만 해야하고,
-바뀌어야 하는 과정이다.
+mysql> CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'abcd1234';
+mysql> create database study;
+mysql> grant all privileges on study.* to 'dbuser'@'localhost'
+(위의 명령어를 입력하니 뭔가 제대로 안되는 것 같다.)
+mysql> flush privileges;
 
-상상하자,
-공기와 혈액의 흐름,
-중력의 작용,
-근육의 움직임
-등등
+일단 로컬에서는 돌릴 수 있게 설치하고, 계정 생성이 된 것 같다.
+
+일단 터미널 가서 mysql 치면 나오고,
+우리의 친구
+select 0 from dual 치면 동작한다.
+
+아 근데 깔리긴 했는데..
+기존에 사용하던 GUI 기반의 프로그램이 안보이니까 영..
+
+// 아 슈바 면도하다 베였네.. ㅠㅠ
+
+sudo npm install -g webpack-dev-server
+요걸로 webpack 등을 설치했다.
+
+하 나 시발..
+이것저것 따라해 보는데..
+경로나 위치 같은 것들이 헷갈리네;;
 
 
 </pre>
 
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>#인프런 </p>
+<p>#<a href="https://hiseon.me/linux/ubuntu/ubuntu-mysql-install/" target="_blank" rel="noopener">https://hiseon.me/linux/ubuntu/ubuntu-mysql-install/</a></p>
+<p>#<a href="https://start.goodtime.co.kr/2018/09/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B0%9C%EB%B0%9C-%EC%85%8B%EC%97%85-2018/" target="_blank" rel="noopener">https://start.goodtime.co.kr/2018/09/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B0%9C%EB%B0%9C-%EC%85%8B%EC%97%85-2018/</a></p>
+
                     
                         
 
@@ -267,7 +276,7 @@
                     
                         <p>
                             <a
-                                href="/2020/01/26/건강/건강의기초/#post-footer"
+                                href="/2020/01/27/닥치고프로젝트/스프링부트리액트2/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -307,7 +316,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 3 of 19</li>
+        <li class="pagination-number">page 3 of 22</li>
     </ul>
 </div>
 

@@ -1,0 +1,744 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="재미로 태어난 한량의 인생놀음~">
+    <title>1 - 재미로 태어난 한량의 인생놀음~</title>
+    <meta name="author" content="DON">
+    
+    
+        <link rel="icon" href="https://dongejeung.github.io/assets/images/favicon.jpg">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"DON","sameAs":["https://github.com/dongejeung"],"image":"favicon.jpg"},"articleBody":"\n\n책을 읽으면서 연습문제를 풀겠다.\n코드관리는 알면 하고 모르면,\n그냥 실행기에서 돌려보고,\n텍스트라도 저장하겠다.\n\nLisp의 방언을 사용하는데,\nLisp은 재귀방정식을 컴퓨터 계산 모형으로 사용할 수 있는지 \n살펴보고자 1950년대에 존 메카시가 만든 언어라고 한다.\n대수식의 미분식이나 적분식을 구하는 것처럼,\n기호로 이루어진 데이터를 다루기에 알맞게 설계되었다고 한다.\n\n데이터와 프로시저를 엄격하게 구분 짓지 않는다고 한다.\n\n=====\n\n1.1 프로그램 짤 때 바탕이 되는 것.\n- 기본식\n- 엮어내는 수단 => 간단한 것을 모아 복잡한 것을 만듬.\n- 요약하는 수단 => 복잡한 것에 이름을 붙여 하나로 다룰 수 있게끔 간추린다.\n\n// 기본 연산식 + 짜여진 식 + 변수나 함수로 이름붙여 재사용.\n\n=====\n\n앞가지 쓰기 함. 연산자가 최왼쪽 괄호로 블락처리 함.\nex) (+ 1 2 3)\n\n식 속에 식 넣기 쉬움.\nex)(+ (+ 1 2) (- 5 4))\n\n- 인간이 보기 쉽게 들여쓰기 함. \n\n- 변수 작성시 define 씀.\nex) (define a 1)\n\n/*\n    scheme은 인터프리터 언어임.\n    여기서 사용하는 프로시저라는 용어는 함수 정도로 해석하면 되려나\n*/\n\n- 변수를 저장하는 공간 => 메모리, 환경.\n\n=======\n\n엮은 식 계산방법.\n\n1. 엮은식에서 부분 식의 값을 모두 구한다.\n2. 엮은식에서 맨 왼쪽에 있는 식(연산자)의 값은 프로시저가 되고,\n나머지 식(피연산자)의 값은 인자가 된다.\n프로시저를 인자에 적용하여 엮은식의 값을 구한다.\n\n/*\n    여기서 처음부터 되도는(recursive 재귀)라는 용어가 나오는데\n    존나 헷갈린다.\n    엮은식을 계산하려면 부분식을 계산행랴 하고,\n    부분식을 계산할 때에도 같은 프로세스를 따른다.\n    이걸 재귀라고 한다는데..\n    앞가지 쓰기 방식에서 앞에 있는 연산자로 다시 돌아온다는 뜻인가\n\n    같은 절차를 여러 번 되밟는 기법 => 재귀(recursive)\n    이것이 문자 그대로의 정의인 것 같긴 한데\n    어쨌든 재귀에 익숙해질 필요가 있다.\n*/\n\n// 여기서 엮은 식의 계수는 연사자의 수로 나타나나 싶다.\n\n// 그리고 context(문맥)라는 개념은 js 공부하면서 배웠는데 통용되는 용어인 듯 하다.\n\n// define은 연산자가 아니고 변수 정의라고 한다.\n 이처럼 게산 규칙이 따로 밝혀져 있는 것을 특별한 형태라고 한단다.\n\n========\n\n!@프로시저 정의하기.\nex)\n(define (square x) (* x x))\n=> (define ( ) )\n// 일반식(?)으로 표현함.\n\n사각형의 넓이 구하는 식을 짜는 것이 나온다.\n(define (sum-of-squares x y)\n        (+ (square x) (square y)))\n\n// 요런식으로 프로시저를 짠다는 듯.\n\n=======\n\n맞바꿈 계산법.\n\n- 묶음 프로시저를 인자에 맞춘다는 것은, 프로시저의 몸 속에 있는 모든 인자이름(formal parameter)을\n 저마다 그에 대응하는 인자 값으로 맞바꾼 다음,\n 그렇게 얻어낸 식의 값을 구하는 것.\n\n => 최소 인수를 계산해서 점점 계산식을 타고 올라감.\n\n // 실제 프로시저가 동작하는 방식은 갇힌 환경(local enviroment) 에 인자 이름을 넣어놓고 계산한다고 한다.\n\n =======\n\n 인자 먼저 계산법과 정의대로 계산법.\n\n => 인자 값을 계산하지 않고, 식 자체를 인자 이름과 맞바꾸어 가다가\n  마지막에 기본 연산으로만 이루어진 식을 얻을 때 그 식의 값을 구하는 방법.\n\n// 전개를 먼저 쫙 다 해놓는다고 봐야하나? 뭐 그럼.\n샘플 코드들을 참조. p.22\n요런 방식의 차이에 따라 연산의 횟수, 계산값이 다르게 나올 수 있다.\n\n=======\n\n조건식과 술어(predicate)\n\ncond(conditional) : 조건문이다.\nex)\n\n(define (abs x)\n    (cond   ((< x 0) x)\n            ((= x 0) 0)\n            ((< x 0) -x)))\n\n일반식 =>            \n(cond   ( )\n        ( )\n        ( ))\n\n=> 요건 술어 p의 값을 구하고, 조건과 비교 다음술어로 넘어가거나\n 쌍에 맞는 결과식(consequent expression)을 구함.\n\n// 아 투자전략 구상을 위해 예전에 봤던 파생상품론 책을 사고 싶은데..\n 영어라 제목이 뭐라고 검색 때려야되지..\n 뭔 options futures 이딴거 들어간 책이었는데,\n 예전에 현금벌려고 중고로 팔았었다..\n 괘니 팔았나;;\n 책을 하도 이것저것 사고 팔다 보니..\n\n=======\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nReferenceSICP","dateCreated":"2020-01-28T16:18:10+09:00","dateModified":"2020-01-28T17:13:32+09:00","datePublished":"2020-01-28T16:18:10+09:00","description":"","headline":"1","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://dongejeung.github.io/2020/01/28/SICP/1/"},"publisher":{"@type":"Organization","name":"DON","sameAs":["https://github.com/dongejeung"],"image":"favicon.jpg","logo":{"@type":"ImageObject","url":"favicon.jpg"}},"url":"https://dongejeung.github.io/2020/01/28/SICP/1/"}</script>
+    <meta name="description" content="책을 읽으면서 연습문제를 풀겠다. 코드관리는 알면 하고 모르면, 그냥 실행기에서 돌려보고, 텍스트라도 저장하겠다.  Lisp의 방언을 사용하는데, Lisp은 재귀방정식을 컴퓨터 계산 모형으로 사용할 수 있는지  살펴보고자 1950년대에 존 메카시가 만든 언어라고 한다. 대수식의 미분식이나 적분식을 구하는 것처럼, 기호로 이루어진 데이터를 다루기에 알맞게">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="1">
+<meta property="og:url" content="https://dongejeung.github.io/2020/01/28/SICP/1/index.html">
+<meta property="og:site_name" content="재미로 태어난 한량의 인생놀음~">
+<meta property="og:description" content="책을 읽으면서 연습문제를 풀겠다. 코드관리는 알면 하고 모르면, 그냥 실행기에서 돌려보고, 텍스트라도 저장하겠다.  Lisp의 방언을 사용하는데, Lisp은 재귀방정식을 컴퓨터 계산 모형으로 사용할 수 있는지  살펴보고자 1950년대에 존 메카시가 만든 언어라고 한다. 대수식의 미분식이나 적분식을 구하는 것처럼, 기호로 이루어진 데이터를 다루기에 알맞게">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-28T08:13:32.121Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1">
+<meta name="twitter:description" content="책을 읽으면서 연습문제를 풀겠다. 코드관리는 알면 하고 모르면, 그냥 실행기에서 돌려보고, 텍스트라도 저장하겠다.  Lisp의 방언을 사용하는데, Lisp은 재귀방정식을 컴퓨터 계산 모형으로 사용할 수 있는지  살펴보고자 1950년대에 존 메카시가 만든 언어라고 한다. 대수식의 미분식이나 적분식을 구하는 것처럼, 기호로 이루어진 데이터를 다루기에 알맞게">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://dongejeung.github.io/assets/images/favicon.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-vcvyvywui0ln8khvlqodlalpil2szvtir4nq4cqabhv6ezlg7u1pympnzkqu.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156063180-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156063180-1');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/ "
+            aria-label=""
+        >
+            재미로 태어난 한량의 인생놀음~
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+            <img class="header-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">DON</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>nope</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/dongejeung" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            1
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-01-28T16:18:10+09:00">
+	
+		    2020.01.28
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/SICP/">SICP</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <pre>
+
+책을 읽으면서 연습문제를 풀겠다.
+코드관리는 알면 하고 모르면,
+그냥 실행기에서 돌려보고,
+텍스트라도 저장하겠다.
+
+Lisp의 방언을 사용하는데,
+Lisp은 재귀방정식을 컴퓨터 계산 모형으로 사용할 수 있는지 
+살펴보고자 1950년대에 존 메카시가 만든 언어라고 한다.
+대수식의 미분식이나 적분식을 구하는 것처럼,
+기호로 이루어진 데이터를 다루기에 알맞게 설계되었다고 한다.
+
+데이터와 프로시저를 엄격하게 구분 짓지 않는다고 한다.
+
+=====
+
+1.1 프로그램 짤 때 바탕이 되는 것.
+- 기본식
+- 엮어내는 수단 => 간단한 것을 모아 복잡한 것을 만듬.
+- 요약하는 수단 => 복잡한 것에 이름을 붙여 하나로 다룰 수 있게끔 간추린다.
+
+// 기본 연산식 + 짜여진 식 + 변수나 함수로 이름붙여 재사용.
+
+=====
+
+앞가지 쓰기 함. 연산자가 최왼쪽 괄호로 블락처리 함.
+ex) (+ 1 2 3)
+
+식 속에 식 넣기 쉬움.
+ex)(+ (+ 1 2) (- 5 4))
+
+- 인간이 보기 쉽게 들여쓰기 함. 
+
+- 변수 작성시 define 씀.
+ex) (define a 1)
+
+/*
+    scheme은 인터프리터 언어임.
+    여기서 사용하는 프로시저라는 용어는 함수 정도로 해석하면 되려나
+*/
+
+- 변수를 저장하는 공간 => 메모리, 환경.
+
+=======
+
+엮은 식 계산방법.
+
+1. 엮은식에서 부분 식의 값을 모두 구한다.
+2. 엮은식에서 맨 왼쪽에 있는 식(연산자)의 값은 프로시저가 되고,
+나머지 식(피연산자)의 값은 인자가 된다.
+프로시저를 인자에 적용하여 엮은식의 값을 구한다.
+
+/*
+    여기서 처음부터 되도는(recursive 재귀)라는 용어가 나오는데
+    존나 헷갈린다.
+    엮은식을 계산하려면 부분식을 계산행랴 하고,
+    부분식을 계산할 때에도 같은 프로세스를 따른다.
+    이걸 재귀라고 한다는데..
+    앞가지 쓰기 방식에서 앞에 있는 연산자로 다시 돌아온다는 뜻인가
+
+    같은 절차를 여러 번 되밟는 기법 => 재귀(recursive)
+    이것이 문자 그대로의 정의인 것 같긴 한데
+    어쨌든 재귀에 익숙해질 필요가 있다.
+*/
+
+// 여기서 엮은 식의 계수는 연사자의 수로 나타나나 싶다.
+
+// 그리고 context(문맥)라는 개념은 js 공부하면서 배웠는데 통용되는 용어인 듯 하다.
+
+// define은 연산자가 아니고 변수 정의라고 한다.
+ 이처럼 게산 규칙이 따로 밝혀져 있는 것을 특별한 형태라고 한단다.
+
+========
+
+!@프로시저 정의하기.
+ex)
+(define (square x) (* x x))
+=> (define (<name> <formal parameters>) <body>)
+// 일반식(?)으로 표현함.
+
+사각형의 넓이 구하는 식을 짜는 것이 나온다.
+(define (sum-of-squares x y)
+        (+ (square x) (square y)))
+
+// 요런식으로 프로시저를 짠다는 듯.
+
+=======
+
+맞바꿈 계산법.
+
+- 묶음 프로시저를 인자에 맞춘다는 것은, 프로시저의 몸 속에 있는 모든 인자이름(formal parameter)을
+ 저마다 그에 대응하는 인자 값으로 맞바꾼 다음,
+ 그렇게 얻어낸 식의 값을 구하는 것.
+
+ => 최소 인수를 계산해서 점점 계산식을 타고 올라감.
+
+ // 실제 프로시저가 동작하는 방식은 갇힌 환경(local enviroment) 에 인자 이름을 넣어놓고 계산한다고 한다.
+
+ =======
+
+ 인자 먼저 계산법과 정의대로 계산법.
+
+ => 인자 값을 계산하지 않고, 식 자체를 인자 이름과 맞바꾸어 가다가
+  마지막에 기본 연산으로만 이루어진 식을 얻을 때 그 식의 값을 구하는 방법.
+
+// 전개를 먼저 쫙 다 해놓는다고 봐야하나? 뭐 그럼.
+샘플 코드들을 참조. p.22
+요런 방식의 차이에 따라 연산의 횟수, 계산값이 다르게 나올 수 있다.
+
+=======
+
+조건식과 술어(predicate)
+
+cond(conditional) : 조건문이다.
+ex)
+
+(define (abs x)
+    (cond   ((< x 0) x)
+            ((= x 0) 0)
+            ((< x 0) -x)))
+
+일반식 =>            
+(cond   (<p1> <e1>)
+        (<p2> <e2>)
+        (<p3> <e3>))
+
+=> 요건 술어 p의 값을 구하고, 조건과 비교 다음술어로 넘어가거나
+ 쌍에 맞는 결과식(consequent expression)을 구함.
+
+// 아 투자전략 구상을 위해 예전에 봤던 파생상품론 책을 사고 싶은데..
+ 영어라 제목이 뭐라고 검색 때려야되지..
+ 뭔 options futures 이딴거 들어간 책이었는데,
+ 예전에 현금벌려고 중고로 팔았었다..
+ 괘니 팔았나;;
+ 책을 하도 이것저것 사고 팔다 보니..
+
+=======
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</e3></p3></e2></p2></e1></p1></body></formal></name></pre>
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><h1 id="SICP"><a href="#SICP" class="headerlink" title="SICP"></a>SICP</h1>
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/27/SQL/mySQL1/"
+                    data-tooltip=""
+                    aria-label="NEXT: "
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 DON. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a
+                        class="post-action-btn btn btn--disabled"
+                        aria-hidden="true"
+                    >
+                        
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/27/SQL/mySQL1/"
+                    data-tooltip=""
+                    aria-label="NEXT: "
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/28/SICP/1/"
+                        aria-label="Share on Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">DON</h4>
+        
+            <div id="about-card-bio"><p>nope</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>white hand</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                Seoul, Korea
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-austbc40zo3ahhsoyg1hgipaie8wwn9oedb0dfchxvtxnqlt26z3k3jt5pfi.min.js"></script>
+<!--SCRIPTS END-->
+<script type="text/javascript">      
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'https://dongejeung.github.io/2020/01/28/SICP/1/';
+              
+            this.page.identifier = '2020/01/28/SICP/1/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'dongejeung';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>

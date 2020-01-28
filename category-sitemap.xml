@@ -8,15 +8,29 @@
     </url>
 
     <url>
-        <loc>https://dongejeung.github.io/categories/%EC%A3%BC%EC%A0%88%EC%A3%BC%EC%A0%88/</loc>
-        <lastmod>2020-01-26T13:11:30.571Z</lastmod>
+        <loc>https://dongejeung.github.io/categories/SICP/</loc>
+        <lastmod>2020-01-28T08:13:32.121Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://dongejeung.github.io/categories/%EB%8B%A5%EC%B9%98%EA%B3%A0%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/</loc>
-        <lastmod>2020-01-26T07:09:13.455Z</lastmod>
+        <lastmod>2020-01-27T08:11:59.344Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://dongejeung.github.io/categories/SQL/</loc>
+        <lastmod>2020-01-27T07:01:56.925Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://dongejeung.github.io/categories/%EC%A3%BC%EC%A0%88%EC%A3%BC%EC%A0%88/</loc>
+        <lastmod>2020-01-26T13:11:30.571Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -66,13 +80,6 @@
     <url>
         <loc>https://dongejeung.github.io/categories/%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC/</loc>
         <lastmod>2020-01-17T09:37:29.503Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://dongejeung.github.io/categories/SICP/</loc>
-        <lastmod>2020-01-15T14:40:21.491Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

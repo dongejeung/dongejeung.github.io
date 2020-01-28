@@ -1,0 +1,640 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="재미로 태어난 한량의 인생놀음~">
+    <title> - 재미로 태어난 한량의 인생놀음~</title>
+    <meta name="author" content="DON">
+    
+    
+        <link rel="icon" href="https://dongejeung.github.io/assets/images/favicon.jpg">
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/feed.xml">
+    
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"DON","sameAs":["https://github.com/dongejeung"],"image":"favicon.jpg"},"articleBody":"\n친구가 추천해준 강의와 링크가 있다.\n그것들을 참고해서 차근차근 해보자.\n\n노드는 저번에 깔았고, \n에디터는 sts4를 쓸거고,\n몽고DB를 깔라는데..\nㅅㅂ 뭐 클러스터 어쩌구 말이 나오는데\n뭔 소린지 모르겠다.\n걍 mysql로 해봐야겠다.\n\nsudo apt install -y mysql-server\n\nsudo mysql_secure_installation\n\nsudo /etc/init.d/mysql restart\n\nsudo mysql -u root -p\n\nmysql> CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'abcd1234';\nmysql> create database study;\nmysql> grant all privileges on study.* to 'dbuser'@'localhost'\n(위의 명령어를 입력하니 뭔가 제대로 안되는 것 같다.)\nmysql> flush privileges;\n\n일단 로컬에서는 돌릴 수 있게 설치하고, 계정 생성이 된 것 같다.\n\n일단 터미널 가서 mysql 치면 나오고,\n우리의 친구\nselect 0 from dual 치면 동작한다.\n\n아 근데 깔리긴 했는데..\n기존에 사용하던 GUI 기반의 프로그램이 안보이니까 영..\n\n// 아 슈바 면도하다 베였네.. ㅠㅠ\n\nsudo npm install -g webpack-dev-server\n요걸로 webpack 등을 설치했다.\n\n하 나 시발..\n이것저것 따라해 보는데..\n경로나 위치 같은 것들이 헷갈리네;;\n\n\n\n\nReference#인프런 \n#https://hiseon.me/linux/ubuntu/ubuntu-mysql-install/\n#https://start.goodtime.co.kr/2018/09/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B0%9C%EB%B0%9C-%EC%85%8B%EC%97%85-2018/\n","dateCreated":"2020-01-27T15:36:10+09:00","dateModified":"2020-01-27T17:11:59+09:00","datePublished":"2020-01-27T15:36:10+09:00","description":"","headline":"","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"},"publisher":{"@type":"Organization","name":"DON","sameAs":["https://github.com/dongejeung"],"image":"favicon.jpg","logo":{"@type":"ImageObject","url":"favicon.jpg"}},"url":"https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"}</script>
+    <meta name="description" content="친구가 추천해준 강의와 링크가 있다. 그것들을 참고해서 차근차근 해보자.  노드는 저번에 깔았고,  에디터는 sts4를 쓸거고, 몽고DB를 깔라는데.. ㅅㅂ 뭐 클러스터 어쩌구 말이 나오는데 뭔 소린지 모르겠다. 걍 mysql로 해봐야겠다.  sudo apt install -y mysql-server  sudo mysql_secure_installatio">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="재미로 태어난 한량의 인생놀음~">
+<meta property="og:url" content="https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/index.html">
+<meta property="og:site_name" content="재미로 태어난 한량의 인생놀음~">
+<meta property="og:description" content="친구가 추천해준 강의와 링크가 있다. 그것들을 참고해서 차근차근 해보자.  노드는 저번에 깔았고,  에디터는 sts4를 쓸거고, 몽고DB를 깔라는데.. ㅅㅂ 뭐 클러스터 어쩌구 말이 나오는데 뭔 소린지 모르겠다. 걍 mysql로 해봐야겠다.  sudo apt install -y mysql-server  sudo mysql_secure_installatio">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-27T08:11:59.344Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="재미로 태어난 한량의 인생놀음~">
+<meta name="twitter:description" content="친구가 추천해준 강의와 링크가 있다. 그것들을 참고해서 차근차근 해보자.  노드는 저번에 깔았고,  에디터는 sts4를 쓸거고, 몽고DB를 깔라는데.. ㅅㅂ 뭐 클러스터 어쩌구 말이 나오는데 뭔 소린지 모르겠다. 걍 mysql로 해봐야겠다.  sudo apt install -y mysql-server  sudo mysql_secure_installatio">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="https://dongejeung.github.io/assets/images/favicon.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-vcvyvywui0ln8khvlqodlalpil2szvtir4nq4cqabhv6ezlg7u1pympnzkqu.min.css">
+    <!--STYLES END-->
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156063180-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156063180-1');
+    </script>
+
+
+    
+
+    
+        
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a
+            class="header-title-link"
+            href="/ "
+            aria-label=""
+        >
+            재미로 태어난 한량의 인생놀음~
+        </a>
+    </div>
+    
+        
+            <a
+                class="header-right-picture "
+                href="#about"
+                aria-label="Open the link: /#about"
+            >
+        
+        
+            <img class="header-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a
+                    href="/#about"
+                    aria-label="Read more about the author"
+                >
+                    <img class="sidebar-profile-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+                </a>
+                <h4 class="sidebar-profile-name">DON</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>nope</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                            title="Home"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-home" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Home</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                            title="Categories"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-bookmark" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">Categories</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                            title="About"
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-question" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">About</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/dongejeung" target="_blank" rel="noopener" title="GitHub">
+                    
+                        <i class="sidebar-button-icon fab fa-github" aria-hidden="true"></i>
+                        <span class="sidebar-button-desc">GitHub</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title">
+            
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time datetime="2020-01-27T15:36:10+09:00">
+	
+		    2020.01.27
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/닥치고프로젝트/">닥치고프로젝트</a>
+
+
+    
+</div>
+
+    
+</div>
+
+    
+    <div class="post-content markdown">
+        <div class="main-content-wrap">
+            <pre>
+친구가 추천해준 강의와 링크가 있다.
+그것들을 참고해서 차근차근 해보자.
+
+노드는 저번에 깔았고, 
+에디터는 sts4를 쓸거고,
+몽고DB를 깔라는데..
+ㅅㅂ 뭐 클러스터 어쩌구 말이 나오는데
+뭔 소린지 모르겠다.
+걍 mysql로 해봐야겠다.
+
+sudo apt install -y mysql-server
+
+sudo mysql_secure_installation
+
+sudo /etc/init.d/mysql restart
+
+sudo mysql -u root -p
+
+mysql> CREATE USER 'dbuser'@'localhost' IDENTIFIED BY 'abcd1234';
+mysql> create database study;
+mysql> grant all privileges on study.* to 'dbuser'@'localhost'
+(위의 명령어를 입력하니 뭔가 제대로 안되는 것 같다.)
+mysql> flush privileges;
+
+일단 로컬에서는 돌릴 수 있게 설치하고, 계정 생성이 된 것 같다.
+
+일단 터미널 가서 mysql 치면 나오고,
+우리의 친구
+select 0 from dual 치면 동작한다.
+
+아 근데 깔리긴 했는데..
+기존에 사용하던 GUI 기반의 프로그램이 안보이니까 영..
+
+// 아 슈바 면도하다 베였네.. ㅠㅠ
+
+sudo npm install -g webpack-dev-server
+요걸로 webpack 등을 설치했다.
+
+하 나 시발..
+이것저것 따라해 보는데..
+경로나 위치 같은 것들이 헷갈리네;;
+
+
+</pre>
+
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>#인프런 </p>
+<p>#<a href="https://hiseon.me/linux/ubuntu/ubuntu-mysql-install/" target="_blank" rel="noopener">https://hiseon.me/linux/ubuntu/ubuntu-mysql-install/</a></p>
+<p>#<a href="https://start.goodtime.co.kr/2018/09/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B0%9C%EB%B0%9C-%EC%85%8B%EC%97%85-2018/" target="_blank" rel="noopener">https://start.goodtime.co.kr/2018/09/%EC%8A%A4%ED%94%84%EB%A7%81-%EB%B6%80%ED%8A%B8-%EB%A6%AC%EC%95%A1%ED%8A%B8-%EA%B0%9C%EB%B0%9C-%EC%85%8B%EC%97%85-2018/</a></p>
+
+            
+
+
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/27/SQL/mySQL1/"
+                    data-tooltip=""
+                    aria-label="PREVIOUS: "
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/26/주절주절/2/"
+                    data-tooltip=""
+                    aria-label="NEXT: "
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2020 DON. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/27/SQL/mySQL1/"
+                    data-tooltip=""
+                    aria-label="PREVIOUS: "
+                >
+                    
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                    </a>
+            </li>
+            <li class="post-action">
+                
+                    
+                <a
+                    class="post-action-btn btn btn--default tooltip--top"
+                    href="/2020/01/26/주절주절/2/"
+                    data-tooltip=""
+                    aria-label="NEXT: "
+                >
+                    
+                        <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a
+                class="post-action-btn btn btn--default btn-open-shareoptions"
+                href="#btn-open-shareoptions"
+                aria-label="Share this post"
+            >
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                    title="Share on Facebook"
+                    aria-label="Share on Facebook"
+                >
+                    <i class="fab fa-facebook" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                    title="Share on Twitter"
+                    aria-label="Share on Twitter"
+                >
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a
+                    class="post-action-btn btn btn--default"
+                    target="new" href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                    title="Share on Google+"
+                    aria-label="Share on Google+"
+                >
+                    <i class="fab fa-google-plus" aria-hidden="true"></i>
+                </a>
+            </li>
+        
+        
+            
+                <li class="post-action">
+                    <a
+                        class="post-action-btn btn btn--default"
+                        href="#disqus_thread"
+                        aria-label="Leave a comment"
+                    >
+                        <i class="fa fa-comment"></i>
+                    </a>
+                </li>
+            
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#" aria-label="Back to top">
+            
+                <i class="fa fa-list" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                
+    <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+        <i id="btn-close-shareoptions" class="fa fa-times"></i>
+        <ul class="share-options">
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://www.facebook.com/sharer/sharer.php?u=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                        aria-label="Share on Facebook"
+                    >
+                        <i class="fab fa-facebook" aria-hidden="true"></i><span>Share on Facebook</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://twitter.com/intent/tweet?text=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                        aria-label="Share on Twitter"
+                    >
+                        <i class="fab fa-twitter" aria-hidden="true"></i><span>Share on Twitter</span>
+                    </a>
+                </li>
+            
+                
+                
+                <li class="share-option">
+                    <a
+                        class="share-option-btn"
+                        target="new"
+                        href="https://plus.google.com/share?url=https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/"
+                        aria-label="Share on Google+"
+                    >
+                        <i class="fab fa-google-plus" aria-hidden="true"></i><span>Share on Google+</span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-times"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/favicon.jpg" alt="Author&#39;s picture"/>
+        
+            <h4 id="about-card-name">DON</h4>
+        
+            <div id="about-card-bio"><p>nope</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>white hand</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker-alt"></i>
+                <br/>
+                Seoul, Korea
+            </div>
+        
+    </div>
+</div>
+
+        
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/script-austbc40zo3ahhsoyg1hgipaie8wwn9oedb0dfchxvtxnqlt26z3k3jt5pfi.min.js"></script>
+<!--SCRIPTS END-->
+<script type="text/javascript">      
+  var search_path = "search.xml";
+  if (search_path.length == 0) {
+    search_path = "search.xml";
+  }
+  var path = "/" + search_path;
+  searchFunc(path, 'local-search-input', 'local-search-result');
+</script>
+
+    
+        <script>
+          var disqus_config = function() {
+            this.page.url = 'https://dongejeung.github.io/2020/01/27/닥치고프로젝트/스프링부트리액트2/';
+              
+            this.page.identifier = '2020/01/27/닥치고프로젝트/스프링부트리액트2/';
+              
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            var disqus_shortname = 'dongejeung';
+            s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+    
+
+
+
+
+    </body>
+</html>
