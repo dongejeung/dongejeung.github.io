@@ -193,7 +193,7 @@
                     
                         <a
                             class="link-unstyled"
-                            href="/2020/01/26/건강/건강의기초/"
+                            href="/2020/01/26/Git/terminalGit/"
                             aria-label=": "
                         >
                             
@@ -201,7 +201,7 @@
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time datetime="2020-01-26T00:37:10+09:00">
+    <time datetime="2020-01-26T15:18:10+09:00">
 	
 		    2020.01.26
     	
@@ -209,7 +209,7 @@
     
         <span>in </span>
         
-    <a class="category-link" href="/categories/건강/">건강</a>
+    <a class="category-link" href="/categories/Git/">Git</a>
 
 
     
@@ -219,42 +219,30 @@
             
                 <div class="postShorten-content">
                     <pre>
-건강은 중요하다.
-현실 세계에서 사용하는 제 1의 자원이라 그러하다.
-자기계발과 최적화의 과정에서 가장 우선시되어야 할 것은 건강이다.
 
-건강을 증진한다 함은 여러 관점이 있을수 있지만,
-균형이 잘 잡혀야되지 않나 싶다.
+일단 기본적으로 terminal 에서 git을 사용하는 것에 익숙해지기로 했다.
 
-- 좌우의 밸런스
-- 척추를 중심으로 근육의 길이가 짧아지고 길어짐.
-- 신경의 압박
-- 손상의 위험성
-- 영양의 공급
-- 전자파 등 유해한 자극 줄이기
-- 양질의 수면
+내가 사용한 방법은 로컬에 프로젝트를 만들고,
+remote repo를 만든후 두개를 연결해서
+master 브랜치에다만 push를 한 것이다.
+다른 방법이나 사용법들은 추가적으로 사용할 때마다 업로드 하도록 하겠다.
 
-등등 신경써야 할 것이 많다.
+1. 로컬에 프로젝트를 만든다.
+2.  git init : 해당 프로젝트 디렉터리에서 이닛을 한다.
+3.  git config (--global) user.name "내이름"
+    git config (--global) user.email "내 이메일"
+// 글로벌은 전역이고 안하면 그냥 개별임.
+4.  git remote add origin remoteRepo의 주소(" 쌍따옴표는 넣지 않는다.)
+5.  git push -u origin master : 처음 푸시할 경우 -u 라는 옵션을 넣어주어야 하는 듯 하다.
 
-그 중에서 좀 우선적으로 신경쓰면 좋을 것이,
-척추를 중심으로 몸의 밸런스를 맞추는 것이다.
-물리/역학적으로 올바른 형태를 갖춰야 올바른 작용을 한다.
+6. git add . (. 이라는 옵션은 전체다 스테이징 하겠다는 뜻인 듯)
+7. git commit -m "커밋 메세지 넣기"
+8. git push origin master : 리모트에 푸시하기.
 
-이를 위해선,
-평소 자세를 올바르게 하고,
-좌식, 보행 등등을 바르게 가져갈 수 있도록 하자.
-그리고 스트레칭을 병행해주도록 하자.
+이다.
 
-이완을 잘하는 것이 먼저다.
-귀찮고 고통스럽지만 해야하고,
-바뀌어야 하는 과정이다.
-
-상상하자,
-공기와 혈액의 흐름,
-중력의 작용,
-근육의 움직임
-등등
-
+이후에는 6~8 단계 위주로 사용했는데,
+점점 더 늘려야 겠다.
 
 </pre>
 
@@ -267,7 +255,7 @@
                     
                         <p>
                             <a
-                                href="/2020/01/26/건강/건강의기초/#post-footer"
+                                href="/2020/01/26/Git/terminalGit/#post-footer"
                                 class="postShorten-excerpt_link link"
                                 aria-label=""
                             >
@@ -307,7 +295,7 @@
             </a>
           </li>
         
-        <li class="pagination-number">page 6 of 22</li>
+        <li class="pagination-number">page 6 of 23</li>
     </ul>
 </div>
 
